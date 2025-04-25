@@ -1,12 +1,13 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     background-color: rgb(35, 11, 82);
     color: white;
-    font-family: poppins;
+    font-family: 'Poppins', sans-serif;
 }
 
 nav {
@@ -27,6 +28,16 @@ nav ul li {
     margin: 0 23px;
 }
 
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: lavender;
+    font-size: 1.01rem;
+}
+
 #left {
     font-size: 1.5rem;
 }
@@ -36,9 +47,10 @@ nav ul li {
     justify-content: space-around;
     margin: 140px 0;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-.firstSection>div {
+.firstSection > div {
     width: 30%;
 }
 
@@ -56,28 +68,20 @@ nav ul li {
     color: rgb(174, 120, 224);
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-nav ul li a:hover {
-    color: lavender;
-    font-size: 1.01rem;
-}
-
 #element {
     color: rgb(135, 41, 118);
 }
 
 .secondSection {
-    max-width: 80vw;
+    max-width: 90vw;
     margin: auto;
-    height: 80vh;
+    padding: 60px 0;
 }
 
 .secondSection h1 {
     font-size: 1.9rem;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .text-gray {
@@ -85,18 +89,40 @@ nav ul li a:hover {
 }
 
 .secondSection .box {
-    background: white;
-    width: 88vw;
-    height: 2px;
-    margin: 56px 0;
     display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 40px 0;
+    gap: 60px;
 }
 
 .secondSection .vertical {
-    height: 93px;
-    width: 1px;
-    background-color: white;
-    margin: 0 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 180px;
+    background-color: transparent;
+    position: relative;
+}
+
+.image-top {
+    width: 40px;
+    position: static;
+    margin-bottom: 10px;
+}
+
+.vertical-title {
+    font-weight: bold;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.vertical-desc {
+    font-size: 0.8rem;
+    text-align: center;
+    color: gray;
 }
 
 main hr {
@@ -106,52 +132,33 @@ main hr {
     margin: 60px 84px;
 }
 
-.image-top {
-    width: 23px;
-    position: relative;
-    top: -32px;
-    left: -9px;
-}
-
-.vertical-title {
-    position: relative;
-    top: 75px;
-    width: 150px;
-}
-
-.vertical-desc {
-    position: relative;
-    top: 86px;
-    width: 150px;
-    font-size: 9px;
-    color: gray;
-}
-
-.footer{
+.footer {
     display: flex;
     padding: 23px 122px;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-footer{
+footer {
     background-color: #0e0e1a;
 }
 
-.footer ul{
+.footer ul {
     list-style: none;
 }
 
-.footer > div{
+.footer > div {
     width: 223px;
+    margin-bottom: 20px;
 }
 
-footer .footer-rights{
+footer .footer-rights {
     color: gray;
     text-align: center;
     padding: 12px 0;
 }
 
-.leftSection .btn{
+.leftSection .btn {
     padding: 12px;
     border: 2px solid white;
     border-radius: 6px;
@@ -161,6 +168,101 @@ footer .footer-rights{
     cursor: pointer;
 }
 
-.leftSection .buttons{
+.leftSection .buttons {
     padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.leftSection .btn {
+    width: 80%;
+    max-width: 300px;
+}
+
+/* ----------- RESPONSIVE STYLING ----------- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+        gap: 10px;
+    }
+
+    .firstSection {
+        flex-direction: column;
+        margin: 50px 20px;
+    }
+
+    .firstSection > div {
+        width: 80%;
+        text-align: center;
+    }
+
+    .leftSection {
+        font-size: 2rem;
+        margin: 30px 0;
+    }
+
+    .rightSection img {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .secondSection .box {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding: 20px;
+    }
+
+    .secondSection .vertical {
+        width: 100%;
+        align-items: flex-start;
+        max-width: 300px;
+        border-left: 2px solid white;
+        padding-left: 20px;
+    }
+
+    .vertical-title,
+    .vertical-desc {
+        margin-bottom: 5px;
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .image-top {
+        width: 35px;
+        margin-bottom: 10px;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .footer > div {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .secondSection h1 {
+        font-size: 1.6rem;
+    }
+
+    .leftSection .buttons {
+        width: 100%;
+    }
+
+    .leftSection .btn {
+        width: 90%;
+    }
 }
